@@ -5,25 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './events/events.component';
-import { SpecialEventsComponent } from './special-events/special-events.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { TokenInterfaceService } from './services/token-interface.service';
-import { ListpartComponent } from './listpart/listpart.component';
 import { NavetopComponent } from './navetop/navetop.component';
 import { NavsideComponent } from './navside/navside.component';
+import { PartenaireListComponent } from './partenaire-list/partenaire-list.component';
+import { PartenaireService } from './services/partenaire.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    EventsComponent,
-    SpecialEventsComponent,
-    ListpartComponent,
     NavetopComponent,
-    NavsideComponent
+    NavsideComponent,
+    PartenaireListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +28,7 @@ import { NavsideComponent } from './navside/navside.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,
+  providers: [AuthService,PartenaireService,PartenaireService
    /* {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

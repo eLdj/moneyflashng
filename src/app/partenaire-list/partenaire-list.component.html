@@ -1,0 +1,46 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">List des partenaires</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable">
+            <thead>
+              <tr>
+                <th>Ninea</th>
+                <th>Siege</th>
+                <th>Raison Social</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let partenaires of partenaire">
+                <tr>
+                  <td>{{partenaires.ninea}}</td>
+                  <td>{{partenaires.siege}}</td>
+                  <td>{{partenaires.raisonSociale}}</td>
+                  <td>{{partenaires.emailP}}</td>
+                  <td>{{partenaires.telephoneP}}</td>
+                  <td>{{partenaires.statut}}</td>
+                </tr>
+              </tbody>
+            <tfoot>
+              <tr>
+                <th>Ninea</th>
+                <th>Siege</th>
+                <th>Raison Social</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Statut</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>    
