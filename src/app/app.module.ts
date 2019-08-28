@@ -28,12 +28,12 @@ import { PartenaireService } from './services/partenaire.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,PartenaireService,PartenaireService
-   /* {
+  providers: [AuthService,PartenaireService,PartenaireService,
+   {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
+      useClass: TokenInterfaceService,
       multi: true
-    }*/],
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JwtHelperService } from "@auth0/angular-jwt";
 @Injectable()
 export class AuthService {
 
+ 
   host2:string = "http://localhost:8000/api/login_check";
   jwt:string;
   username:string;
@@ -16,7 +17,6 @@ export class AuthService {
 
 
   login(data:any){
-
    return this.http.post(this.host2, data,{observe:'response'});
  
   }
@@ -29,11 +29,16 @@ export class AuthService {
  
   parseJWT(){
     let jwtHelper = new JwtHelperService();
-    let objJWT = jwtHelper.decodeToken(this.jwt);
+    let objJWT = jwtHelper.decodeToken(this.jwt);   
     this.username = objJWT.username;
     this.roles = objJWT.roles;
     console.log(this.roles);
   }
+
+  getToken() {
+    return localStorage.getItem('token')
+  }
+
 
   isAdmin(){
     return this.roles.indexOf('ROLE_SUPER_ADMIN')>=0;

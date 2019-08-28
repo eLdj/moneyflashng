@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
  
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,private _router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
       .subscribe(resp=>{
         let jwt = resp.body['token'];
         this.auth.saveToken(jwt);
+        
+        if(this.isAdmin()){
+          this._router.navigate(['/partenaire-list'])
+        }
        // console.log();
       },err=>{
         console.log(err); 

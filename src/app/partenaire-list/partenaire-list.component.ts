@@ -13,7 +13,7 @@ export class PartenaireListComponent implements OnInit {
   constructor(private _partService: PartenaireService) { }
 
   ngOnInit(){
-    this._partService. getPartenaire()
+    this._partService.getPartenaire()
     .subscribe(data => this.partenaire = data,
       error => this.errorMsg = error
       );
