@@ -32,7 +32,7 @@ export class AuthService {
     let objJWT = jwtHelper.decodeToken(this.jwt);
     this.username = objJWT.username;
     this.roles = objJWT.roles;
-    //console.log(this.roles);
+    console.log(this.roles);
   }
 
   isAdmin(){

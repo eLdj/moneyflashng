@@ -1,25 +1,34 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Eventhub</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <app-navside> </app-navside>
+        
+        <div id="content-wrapper" class="d-flex flex-column">
+               
+            <div id="content">
+            
+                <app-navetop></app-navetop>
+                
+                <div class="container-fluid">
+                    
+                    <router-outlet></router-outlet>
+                
+                </div>
+            
+            </div>
+             <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; moneyFlash 2019</span>
+                </div>
+                </div>
+            </footer>
+          <!-- End of Footer -->
+        
+        </div>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/special" routerLinkActive="active">Members</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-          <a class="nav-link"  routerLink="/login" routerLinkActive="active">Login</a>
-          <a class="nav-link"  routerLink="/register" routerLinkActive="active">Register</a>
-      </ul>
     </div>
-  </nav>    
-  <div class="container">
-    <router-outlet></router-outlet>            
-  </div>
+   
+          
+  

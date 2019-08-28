@@ -10,13 +10,20 @@ import { SpecialEventsComponent } from './special-events/special-events.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { TokenInterfaceService } from './services/token-interface.service';
+import { ListpartComponent } from './listpart/listpart.component';
+import { NavetopComponent } from './navetop/navetop.component';
+import { NavsideComponent } from './navside/navside.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     EventsComponent,
-    SpecialEventsComponent
+    SpecialEventsComponent,
+    ListpartComponent,
+    NavetopComponent,
+    NavsideComponent
   ],
   imports: [
     BrowserModule,
