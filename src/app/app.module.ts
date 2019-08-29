@@ -12,6 +12,8 @@ import { NavetopComponent } from './navetop/navetop.component';
 import { NavsideComponent } from './navside/navside.component';
 import { PartenaireListComponent } from './partenaire-list/partenaire-list.component';
 import { PartenaireService } from './services/partenaire.service';
+import { ModalComponent } from './modal/modal.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PartenaireService } from './services/partenaire.service';
     LoginComponent,
     NavetopComponent,
     NavsideComponent,
-    PartenaireListComponent
+    PartenaireListComponent,
+    ModalComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +33,12 @@ import { PartenaireService } from './services/partenaire.service';
     AppRoutingModule
   ],
   providers: [AuthService,PartenaireService,PartenaireService,
-   {
+  /*{
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterfaceService,
       multi: true
-    }],
-  bootstrap: [AppComponent]
+  }*/],
+  bootstrap: [AppComponent],
+  exports: [UtilisateurComponent]
 })
 export class AppModule { }

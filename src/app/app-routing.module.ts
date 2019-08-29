@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavetopComponent } from './navetop/navetop.component';
 import { NavsideComponent } from './navside/navside.component';
 import { PartenaireListComponent } from './partenaire-list/partenaire-list.component';
+import { ModalComponent } from './modal/modal.component';
 const routes: Routes = [
   {
     path: '',
@@ -12,6 +13,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+  
     path: 'navetop',
     component: NavetopComponent
   }, 
@@ -31,6 +37,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+  {
+    path: 'modal',
+    component: ModalComponent
+  }
 ];
 
 @NgModule({

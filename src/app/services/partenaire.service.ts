@@ -11,7 +11,8 @@ export class PartenaireService {
   constructor(private httpClient: HttpClient) { }
 
     getPartenaire(): Observable<Partenaire[]>{
-      return this.httpClient.get<Partenaire[]>(this._url);
+      var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+      return this.httpClient.get<Partenaire[]>(this._url,{headers:headers});
     } 
    
     errorHandler(error: HttpErrorResponse){
