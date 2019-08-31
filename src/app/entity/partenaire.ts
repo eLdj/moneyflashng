@@ -15,6 +15,8 @@ export class Partenaire {
        email:string=null,
        telephone:string=null,
        imageFile: File=null,
+       profil:string=null,
+       roles: any = null,
 
    ){}
 
@@ -32,4 +34,6 @@ export class Partenaire {
    public email:string;
    public telephone:string;
    public imageFile: File;
+   public profil:string;
+   public roles: any;
 }

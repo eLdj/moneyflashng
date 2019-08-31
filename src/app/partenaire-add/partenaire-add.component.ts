@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../services/partenaire.service';
 import {Partenaire } from '../entity/partenaire';
-import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-partenaire-add',
   templateUrl: './partenaire-add.component.html',
@@ -12,7 +12,7 @@ export class PartenaireAddComponent implements OnInit {
   partModel = new Partenaire();
   erroMsg = '';
   imageUrl:string="/assets/img/test.png"
-  constructor(private _partService: PartenaireService,http: HttpClient) { }
+  constructor(private _partService: PartenaireService) { }
 
   ngOnInit() {
   }

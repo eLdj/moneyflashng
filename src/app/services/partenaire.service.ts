@@ -10,6 +10,8 @@ export class PartenaireService {
  
   private _urlpartlist: string = "http://localhost:8000/api/listparts";
   private _urlpartadd: string = "http://localhost:8000/api/inscrit";
+  private _urluseradd: string = "http://localhost:8000/api/adduser";
+  
   constructor(private httpClient: HttpClient) { }
   
   private headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
@@ -41,9 +43,27 @@ export class PartenaireService {
       formData.append('username',data.username);
       formData.append('password',data.password);
       formData.append('imageFile',data.imageFile);
-      return this.httpClient.post<Partenaire>(this._urlpartadd,formData,{headers:this.headers})
+      return this.httpClient.post<Partenaire>(this._urlpartadd, formData,{headers:this.headers})
         .pipe(catchError(this.errorHandlerpost))
    
+    }
+
+    userAdd(data: Partenaire):  Observable<Partenaire>
+    {
+      const formData: FormData = new FormData();
+      formData.append('nom',data.nom);
+      formData.append('prenom',data.prenom);
+      formData.append('telephone',data.telephone);
+      formData.append('adresse',data.adresse);
+      formData.append('email',data.email);
+      formData.append('username',data.username);
+      formData.append('password',data.password);
+      formData.append('password',data.password);
+      formData.append('profil',data.profil);
+      formData.append('imageFile',data.imageFile);
+
+      return this.httpClient.post<Partenaire>(this._urluseradd,formData,{headers:this.headers})
+      .pipe(catchError(this.errorHandlerpost))
     }
 
     // imageUpload(image){

@@ -6,11 +6,16 @@ import { NavsideComponent } from './navside/navside.component';
 import { PartenaireListComponent } from './partenaire-list/partenaire-list.component';
 import { ModalComponent } from './modal/modal.component';
 import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full',
+  },
+  {
+    path: 'utilisateur',
+    component: UtilisateurComponent
   },
   {
     path: 'partenaire-add',

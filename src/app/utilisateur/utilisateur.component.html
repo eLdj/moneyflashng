@@ -1,1 +1,76 @@
 
+<div class="card shadow mb-4">
+        <form class="user" #partForm ="ngForm">
+          <div class="card-body p-0">
+            <div class="row"> 
+              <div class="col-lg-6 ">
+                <div class="p-5">
+                  
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Utilisateur</h1>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" name="nom" [(ngModel)]="partModel.nom">
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-user" id="prenom" placeholder="Prènom" name="prenom" [(ngModel)]="partModel.prenom">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-user" id="email" placeholder="Adresse Email" name="email" [(ngModel)]="partModel.email">
+                  </div>
+    
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="tel" class="form-control form-control-user" id="tel" placeholder="Téléphone" name="tel" [(ngModel)]="partModel.telephone">
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse" name="adresse" [(ngModel)]="partModel.adresse">
+                    </div>
+                  </div>
+      
+      
+                  <div class="form-group">
+                      <input type="text" #username="ngModel" class="form-control form-control-user" id="username" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="partModel.username">
+                  </div>
+      
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="password" class="form-control form-control-user" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="partModel.password">
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control form-control-user" id="repeatpwd" placeholder="Confirmez mot de passe" name="repeatpwd" ngModel>
+                    </div>
+                  </div>
+
+                  <div class="form-group row"> 
+                     <div class="col-sm-6">
+                      <label class="mdb-main-label">Choisir un role</label> 
+                      <select #profil="ngModel" class="mdb-select md-form" name="profil" [(ngModel)]="partModel.profil">
+                        <option value="1">Option 1</option>
+                        <option *ngFor="let profil of profils" value={{profil}}>{{profil}}</option>
+                      </select>                     
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="mdb-main-label">Choisir une image</label> 
+                      <input class="mdb-select md-form" type="file" #imageFile accept="images/*"  name="imageFile" (change)="handleFileInput($event.target.files)">
+                    </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class = "partenaire">
+            <button [disabled]="partForm.form.invalid" type="submit" class="btn btn-primary btn-user btn-block" (click)="onSubmit()" >Enregistrez</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <script>
+        $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+        });
+      </script>
+     
