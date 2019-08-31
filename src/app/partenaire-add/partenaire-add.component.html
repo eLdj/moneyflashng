@@ -1,0 +1,95 @@
+
+<div class="card shadow mb-4">
+    <form class="user" #partForm ="ngForm">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Entreprise</h1>
+              </div>
+                
+              <div class="form-group">
+                <input type="text"  #raisonsociale="ngModel" [class.is-invalid]="raisonsociale.invalid && raisonsociale.touched" class="form-control form-control-user" id="raisonsociale" placeholder="Raison Sociale" name="raisonSociale" [(ngModel)]="partModel.raisonSociale">
+               <!--<small class="text-danger" [class.d-none]="raisonsociale.valid || raisonsociale.untouched">Ce champ est requis</small>--> 
+              </div>
+              
+              <div class="form-group">
+                <input type="number" #ninea="ngModel" class="form-control form-control-user" id="ninea" placeholder="NINEA" name="ninea" [(ngModel)]="partModel.ninea">
+              </div>
+              
+              <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="siege" placeholder="Siège" name="siege" [(ngModel)]="partModel.siege">
+              </div>
+              
+              <div class="form-group">
+                <input type="tel" required #telephoneP="ngModel" pattern="^\d{9}$" [class.is-invalid]="telephoneP.invalid && telephoneP.touched" class="form-control form-control-user" id="telephoneP" placeholder="Téléphone" name="telephoneP" [(ngModel)]="partModel.telephoneP">
+                <div *ngIf="telephoneP.touched">
+                  <div *ngIf="telephoneP.errors && telephoneP.invalid">
+                    <small class="text-danger" *ngIf="telephoneP.errors.required">Le numero de telephone est requis</small>
+                    <small class="text-danger" *ngIf="telephoneP.errors.pattern">Le numero doit être de 9 chiffre</small>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" #emailP="ngModel" class="form-control form-control-user" id="emailP" placeholder="Addresse Email" name="emailP" [(ngModel)]="partModel.emailP">
+              </div>
+            </div>
+          </div>  
+          <div class="col-lg-6 ">
+  
+            <div class="p-5">
+              
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Super Admin Entreprise</h1>
+              </div>
+              
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" name="nom" [(ngModel)]="partModel.nom">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="prenom" placeholder="Prènom" name="prenom" [(ngModel)]="partModel.prenom">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" class="form-control form-control-user" id="email" placeholder="Adresse Email" name="email" [(ngModel)]="partModel.email">
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="tel" class="form-control form-control-user" id="tel" placeholder="Téléphone" name="tel" [(ngModel)]="partModel.telephone">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse" name="adresse" [(ngModel)]="partModel.adresse">
+                </div>
+              </div>
+  
+  
+              <div class="form-group">
+                  <input type="text" #username="ngModel" class="form-control form-control-user" id="username" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="partModel.username">
+              </div>
+  
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="password" class="form-control form-control-user" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="partModel.password">
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control form-control-user" id="repeatpwd" placeholder="Confirmez mot de passe" name="repeatpwd" ngModel>
+                </div>
+              </div> 
+              <div class="btn btn-primary btn-sm float-left">
+                  <input type="file" #imageFile accept="images/*"  name="imageFile" (change)="handleFileInput($event.target.files)">
+              </div>
+              <!-- <input type="file" class="form-control" id="file" name="file" ngModel> -->
+            </div>
+          </div>
+        </div>
+        <div class = "partenaire">
+        <button [disabled]="partForm.form.invalid" type="submit" class="btn btn-primary btn-user btn-block" (click)="onSubmit()" >Enregistrez</button>
+        </div>
+      </div>
+    </form>
+  </div>

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { NavetopComponent } from './navetop/navetop.component';
 import { NavsideComponent } from './navside/navside.component';
 import { PartenaireListComponent } from './partenaire-list/partenaire-list.component';
 import { ModalComponent } from './modal/modal.component';
+import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
 const routes: Routes = [
   {
     path: '',
@@ -13,8 +13,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'register',
-    component: RegisterComponent
+    path: 'partenaire-add',
+    component: PartenaireAddComponent
   },
   {
   
@@ -32,10 +32,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
   },
   {
     path: 'modal',

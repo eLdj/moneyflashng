@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
@@ -14,17 +13,18 @@ import { PartenaireListComponent } from './partenaire-list/partenaire-list.compo
 import { PartenaireService } from './services/partenaire.service';
 import { ModalComponent } from './modal/modal.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     LoginComponent,
     NavetopComponent,
     NavsideComponent,
     PartenaireListComponent,
     ModalComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    PartenaireAddComponent
   ],
   imports: [
     BrowserModule,
