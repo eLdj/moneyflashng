@@ -14,6 +14,8 @@ import { PartenaireService } from './services/partenaire.service';
 import { ModalComponent } from './modal/modal.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { PartenaireAddComponent } from './partenaire-add/partenaire-add.componen
     PartenaireListComponent,
     ModalComponent,
     UtilisateurComponent,
-    PartenaireAddComponent
+    PartenaireAddComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,PartenaireService,PartenaireService,
   /*{

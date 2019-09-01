@@ -1,0 +1,31 @@
+.p-5 {
+    padding: 1rem!important;
+}
+.envoyez
+{
+    width: 10em;
+    display: block;
+    margin: auto;
+    top: -0.4em;
+    position: relative;
+}
+
+.montant
+{
+    width: 13em;
+    display: block;
+    margin: auto;
+    top: -1em;
+    position: relative;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.1rem;
+    padding-top: 0;
+}
+.mb-4, .my-4 {
+    margin-bottom: 0.7rem!important;
+}

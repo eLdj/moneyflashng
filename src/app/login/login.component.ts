@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         let jwt = resp.body['token'];
         this.auth.saveToken(jwt);
         
-        if(this.isAdmin()){
+        if(this.isAdmin() || this.isAdminPart()){
           this._router.navigate(['/partenaire-list'])
         }
        // console.log();
