@@ -48,6 +48,10 @@ export class PartenaireService {
    
     }
 
+
+
+    
+
     userAdd(data: Partenaire):  Observable<Partenaire>
     {
       const formData: FormData = new FormData();

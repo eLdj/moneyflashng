@@ -48,6 +48,7 @@ export class AuthService {
   isAdminPart(){
     return this.roles.indexOf('ROLE_SUPER_ADMIN_PARTENAIRE')>=0;
   }
+  
   logout() {
     localStorage.removeItem('token');
     this._router.navigate(['/login']);

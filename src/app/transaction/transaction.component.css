@@ -29,3 +29,28 @@
 .mb-4, .my-4 {
     margin-bottom: 0.7rem!important;
 }
+
+.code
+{
+    width: 10em;
+    display: block;
+    margin: auto;
+    top: -0.4em;
+    position: relative;
+    top: 1.6em;
+}
+
+.codetrans
+{
+    width: 18em;
+    display: block;
+    margin: auto;
+    top: 2em;
+    position: relative;
+    left: -2.5em;
+}
+
+.formcode
+{
+    height: 10em;
+}

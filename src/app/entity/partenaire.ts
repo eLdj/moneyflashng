@@ -20,6 +20,7 @@ export class Partenaire {
 
    ){}
 
+
    public id: number ;
    public ninea: string;
    public siege: string;

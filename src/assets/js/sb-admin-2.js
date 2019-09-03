@@ -46,8 +46,9 @@
     e.preventDefault();
   });
 
+  $(document).ready(function() {
+    $('.mdb-select').materialSelect();
+    });
+
 })(jQuery); // End of use strict
 
-$(document).ready(function() {
-  $('.mdb-select').materialSelect();
-  });
