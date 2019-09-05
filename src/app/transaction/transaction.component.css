@@ -52,5 +52,10 @@
 
 .formcode
 {
-    height: 10em;
+    height: 12em;
+    margin-bottom: -0.7em;
 }
+.swal-modal {
+    background-color: rgba(63,255,106,0.69);
+    border: 3px solid white;
+  }

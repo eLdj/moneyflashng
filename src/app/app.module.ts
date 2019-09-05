@@ -16,6 +16,9 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DepotComponent } from './depot/depot.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     UtilisateurComponent,
     PartenaireAddComponent,
-    TransactionComponent
+    TransactionComponent,
+    DepotComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    OrderModule
   ],
   providers: [AuthService,PartenaireService,PartenaireService,
   /*{
@@ -43,6 +49,6 @@ import { ReactiveFormsModule } from '@angular/forms';
       multi: true
   }*/],
   bootstrap: [AppComponent],
-  exports: [UtilisateurComponent]
+  exports: [UtilisateurComponent,DepotComponent]
 })
 export class AppModule { }

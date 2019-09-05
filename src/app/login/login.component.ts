@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,19 @@ export class LoginComponent implements OnInit {
        // console.log();
       },err=>{
         console.log(err); 
+        if(err.message.search('401')){
+          Swal.fire(
+              'Erreur',
+              'Mot de passe ou login incorect !',
+              'error'
+            )
+          }else if(err.message.search('404')>=0){
+            Swal.fire(
+              'Attention',
+              'Ressource non trouvé',
+              'warning'
+            )
+          }
       }) 
   }
   

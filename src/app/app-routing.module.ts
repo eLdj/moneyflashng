@@ -8,6 +8,7 @@ import { ModalComponent } from './modal/modal.component';
 import { PartenaireAddComponent } from './partenaire-add/partenaire-add.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { DepotComponent } from './depot/depot.component';
 const routes: Routes = [
   {
     path: '',
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'transaction',
     component: TransactionComponent
+  },
+  {
+    path: 'depot',
+    component: DepotComponent
   }
 ];
 

@@ -97,33 +97,27 @@
                   <h6 class="m-0 font-weight-bold text-primary">Split Buttons with Icon</h6>
                 </div>
                 <div class="card-body">
-                  <!-- <tbody *ngFor="let info of transInfos | keyvalue ">
-                    <tr >
-                        <td *ngIf="info.key=='createdAt'">Date d'envoie : {{info.value}}</td>
-    
-                        <td *ngIf="info.key=='nomCompletE'">Expéditeur : {{info.value}}</td>
-                        <td *ngIf="info.key=='telE'">Numéro de téléphone : {{info.value}}</td>
-                        <td *ngIf="info.key=='cinE'">Numéro d'itentification : {{info.value}}</td>
-                        <td *ngIf="info.key=='adresseE'">Adresse : {{info.value}}</td>
-    
-                        <td *ngIf="info.key=='nomCompletB'">Bénéficiaire : {{info.value}}</td>
-                        <td *ngIf="info.key=='telB'">Numéro de téléphone : {{info.value}}</td>
-                        <td *ngIf="info.key=='cinB'">Numéro d'itentification : {{info.value}}</td>
-                        <td *ngIf="info.key=='adresseB'">Adresse : {{info.value}}</td>
-    
-                        <td *ngIf="info.key=='codeGenere'">Code d'envoie : {{info.value}}</td>
-                        <td *ngIf="info.key=='montantTransfert'">Montant Transfert : {{info.value}}</td>
-                        <td *ngIf="info.key=='fraisTransaction'">Frais transaction : {{info.value}}</td>
-                      </tr>
-
-
-                  </tbody> -->
                   <form class="formcode" [formGroup]="findCodeForm" >
                     <div class="form-group montant" >
-                      <input type="number" class="form-control form-control-user codetrans" formControlName="code_genere" placeholder="Vérification code transaction">
+                      <input type="text" class="form-control form-control-user codetrans" formControlName="code_genere" placeholder="Vérification code transaction">
                     </div>
                     <div class = "code">
                       <button  type="submit" class="btn btn-primary btn-user btn-block" (click)="findCode()" >Vérifiez</button>
+                    </div>
+                  </form>  
+
+                  <!--  -->
+                  <form class="formcode" [formGroup]="retraitForm" *ngIf="affiche==true">
+                    <div class="form-group montant" >
+                      <input type="text" class="form-control form-control-user codetrans" formControlName="code_genere" placeholder="confirmation code transaction">
+                    </div>
+                    <br>
+                    <div class="form-group montant" >
+                      <input type="text" class="form-control form-control-user codetrans" formControlName="cin_b" placeholder="CIN Bénéficiaire">
+                    </div>
+                   
+                    <div class = "code">
+                      <button  type="submit" class="btn btn-primary btn-user btn-block" (click)="retrait()">Retirez</button>
                     </div>
                   </form>  
                       

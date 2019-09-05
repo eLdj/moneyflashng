@@ -28,7 +28,7 @@ export class Transaction {
     public cin_b: string; 
 
     public montant_transfert: number ;
-    public created_at: Date;
+    public created_at;
     public code_genere: string;
     public frais_transaction: number;
     public total_envoi: number;
@@ -37,7 +37,7 @@ export class Transaction {
     public commission_retrait: number;
     public commission_envoie: number;
     public statut:string; 
-    public date_retrait: Date; 
+    public date_retrait; 
    
     
   
