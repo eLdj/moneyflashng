@@ -1,4 +1,5 @@
 <!-- Begin Page Content -->
+<script src="/src/assets/js/demo/datatables-demo.js"></script>
 <div class="container-fluid">
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -10,16 +11,17 @@
           <table class="table table-bordered" id="dataTable">
             <thead>
               <tr>
-                <th>Ninea</th>
-                <th>Siege</th>
-                <th>Raison Social</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                <th>Date d'enregistrement</th>
-                <th>Statut</th>
+                <th scope="col">Ninea</th>
+                <th scope="col">Siege</th>
+                <th scope="col">Raison Social</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Date d'enregistrement</th>
+                <th scope="col">Détails</th>
+                <th scope="col">Statut</th>
               </tr>
             </thead>
-            <tbody *ngFor="let partenaires of partenaire">
+            <tbody  *ngFor="let partenaires of partenaire">
                 <tr>
                   <td>{{partenaires.ninea}}</td>
                   <td>{{partenaires.siege}}</td>
@@ -27,23 +29,12 @@
                   <td>{{partenaires.emailP}}</td>
                   <td>{{partenaires.telephoneP}}</td>
                   <td>{{partenaires.createdAt}}</td>
-                  <td>{{partenaires.statut}}</td>
+                  <td ><button class="btn btn-success" routerLink="/partenaire-add/{{partenaires.id}}">Détail</button></td>
+                  <td><button  (click)="partBlock(partenaires.id)" class="btn btn-success">{{partenaires.statut}}</button></td>
                 </tr>
               </tbody>
-            <tfoot>
-              <tr>
-                <th>Ninea</th>
-                <th>Siege</th>
-                <th>Raison Social</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                <th>Date d'enregistrement</th>
-                <th>Statut</th>
-              </tr>
-            </tfoot>
           </table>
         </div>
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>    

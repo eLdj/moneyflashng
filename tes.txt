@@ -134,3 +134,16 @@
 
       </div>
       <!-- /.container-fluid -->
+
+
+  handleSubmit() {
+    this.chotchkiesService.createChotchkie(this.chotchkieFormGroup.value)
+      .subscribe(
+        chotchkie => {
+          console.log(`Saved successfully. ${JSON.stringify(chotchkie)}`);
+          this.chotchkieFormGroup.reset({ name: '', description: '', price: 0, quantityOnHand: 0 });
+        },
+        error => { alert(error); }
+      );
+  }
+}

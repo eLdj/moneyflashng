@@ -19,4 +19,20 @@ export class PartenaireListComponent implements OnInit {
       );
   }
 
+  partBlock(id)
+  {
+    if (window.confirm('Etes vous sûr de vouloir bloquer cet partenaire'))
+    {
+      this._partService.blockPart(id)
+      .subscribe(
+        data=>{
+          console.log(data)
+          this.ngOnInit()
+        },    
+        err=>console.log(err)
+      );
+      
+    }
+   
+  }
 }

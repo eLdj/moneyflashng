@@ -26,10 +26,10 @@
                               <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Rechercher compte</h1>
                               </div> 
-                              <div class="form-group">
+                              <div class="form-group" >
                                   <input type="text" #box (keyup.enter)="findNum(box.value)" class="form-control form-control-user"  placeholder="N* de compte" formControlName="numero">
                                   <br>
-                                <p>Raison Sociale &nbsp;&nbsp;:{{compte.partenaire.raisonSociale}}</p>
+                                <p>Raison Sociale &nbsp;&nbsp;: {{compte.partenaire.raisonSociale}}</p>
                                 <p>Ninae &nbsp;&nbsp;: {{compte.partenaire.ninea}}</p>
                                 <p>Numero téléphone &nbsp;&nbsp;: {{compte.partenaire.telephoneP}}</p>
                                 <p> Email &nbsp;&nbsp;: {{compte.partenaire.emailP}}</p>
@@ -74,12 +74,12 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>Montant</th>
-                          <th>Date dépot</th>
-                          <th>Nom du caissier</th>      
+                          <th scope="col">Montant</th>
+                          <th scope="col">Date dépot</th>
+                          <th scope="col">Nom du caissier</th>      
                         </tr>
                       </thead>
-                      <tbody *ngFor="let dpt of compte.depots | orderBy:order | slice:0:2 ">
+                      <tbody #order *ngFor="let dpt of compte.depots | orderBy:order | slice:0:2 ">
                           <tr>
                             <td>{{dpt.montantDepot}}</td>
                             <td>{{dpt.dateDepot | date:'short'}}</td>

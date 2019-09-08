@@ -1,0 +1,40 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">List des utilisateurs</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered display"  id="dataTable" >
+          <thead>
+            <tr>
+              <th scope="col" >Nom</th>
+              <th scope="col" >Prenom</th>
+              <th scope="col" >Adresse</th>
+              <th scope="col" >Téléphone</th>
+              <th scope="col" >Email</th>
+              <th scope="col" >Profil</th>
+              <th scope="col" >Détail</th>
+              <th scope="col" >Statut</th>
+            </tr>
+          </thead>
+          <tbody >
+              <tr *ngFor="let user of listuser">
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.nom}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.prenom}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.adresse}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.telephone}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.email}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'">{{user.profil}}</td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'"><button class="btn btn-success" routerLink="/utilisateur/{{user.id}}">Détail</button></td>
+                <td *ngIf="user.roles[0]!=='ROLE_SUPER_ADMIN'"><button  (click)="userBlock(user.id)" class="btn btn-success">{{user.statut}}</button></td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

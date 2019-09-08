@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../services/partenaire.service';
 import {Partenaire } from '../entity/partenaire';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-partenaire-add',
   templateUrl: './partenaire-add.component.html',
   styleUrls: ['./partenaire-add.component.css']
 })
 export class PartenaireAddComponent implements OnInit {
- 
+  id = this.actRoute.snapshot.params['id'];
   partModel = new Partenaire();
+  
+  public partenaire = [];
+  partenaireData: any = {};
   erroMsg = '';
   imageUrl:string="/assets/img/test.png"
-  constructor(private _partService: PartenaireService) { }
+  constructor(private _partService: PartenaireService, public actRoute: ActivatedRoute,
+    public router: Router){ }
 
   ngOnInit() {
+    this._partService.getPart(this.id)
+    .subscribe(data => this.partModel = data);  
   }
 
   handleFileInput(file : FileList){

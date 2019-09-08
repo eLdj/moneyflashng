@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
- 
+  
+  messageError;
   constructor(private auth: AuthService,private _router: Router) { }
 
   ngOnInit() {
@@ -20,28 +22,27 @@ export class LoginComponent implements OnInit {
     this.auth.login(data)
       .subscribe(resp=>{
         let jwt = resp.body['token'];
-        this.auth.saveToken(jwt);
-        
+        this.auth.saveToken(jwt); 
         if(this.isAdmin() || this.isAdminPart()){
           this._router.navigate(['/partenaire-list'])
         }
        // console.log();
       },err=>{
-        console.log(err); 
-        if(err.message.search('401')){
-          Swal.fire(
-              'Erreur',
-              'Mot de passe ou login incorect !',
-              'error'
-            )
-          }else if(err.message.search('404')>=0){
-            Swal.fire(
-              'Attention',
-              'Ressource non trouvé',
-              'warning'
-            )
+        this.messageError =err.status
+        console.log( this.messageError );       
+        // if(this.messageError){
+        //   Swal.fire({
+        //     type: 'error',
+        //     title: '<h2> Infos Transaction </h2><hr/>',
+        //     html: '<h2>'+this.messageError+'<h2>',
+        //   })
+        // }
+        if(err instanceof HttpErrorResponse) {
+          if(err.status===401){
+            this._router.navigate(['/login'])
           }
-      }) 
+        }
+      })
   }
   
   isAdmin(){
@@ -51,4 +52,5 @@ export class LoginComponent implements OnInit {
   isAdminPart(){
     return this.auth.isAdminPart();
   }
+
 }

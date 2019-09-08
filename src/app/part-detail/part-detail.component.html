@@ -1,0 +1,99 @@
+<div id="wrapper">
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Compte et Dépot</h1>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Opération</h6>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="findNumForm"  >
+        
+                  <div class="row">  
+                      <div class="col-lg-12 ">
+                        <div class="p-5">
+                            <div class="text-center">
+                              <h1 class="h4 text-gray-900 mb-4">Rechercher compte</h1>
+                            </div> 
+                            <div class="form-group" >
+                                <input type="text" #box (keyup.enter)="findNum(box.value)" class="form-control form-control-user"  placeholder="N* de compte" formControlName="numero">
+                                <br>
+                              <p>Raison Sociale &nbsp;&nbsp;: {{compte.partenaire.raisonSociale}}</p>
+                              <p>Ninae &nbsp;&nbsp;: {{compte.partenaire.ninea}}</p>
+                              <p>Numero téléphone &nbsp;&nbsp;: {{compte.partenaire.telephoneP}}</p>
+                              <p> Email &nbsp;&nbsp;: {{compte.partenaire.emailP}}</p>
+                              <p>Numero de compte &nbsp;&nbsp;: {{compte.numero}}  
+                              <p>Solde &nbsp;&nbsp;: {{compte.montant}}</p>
+                              <p>Statut partenaire &nbsp;&nbsp;: {{compte.partenaire.statut}} </p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </form>  
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Dépot sur compte partenaire</h6>
+              </div>
+              <div class="card-body">
+                <form class="formcode" [formGroup]="depotForm" >
+                  <div class="form-group montant" >
+                    <input type="text" class="form-control form-control-user codetrans" placeholder="Numero de compte" formControlName="numero">
+                  </div>
+                  <br>
+                  <div class="form-group montant" >
+                    <input type="text" class="form-control form-control-user codetrans" placeholder="Montant à déposer" formControlName="montant_depot">
+                  </div>
+                  <div class = "code">
+                    <button  type="submit" (click)="depotCompte()" class="btn btn-primary btn-user btn-block" >Vérifiez</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Dépot sur compte partenaire</h6>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Montant</th>
+                        <th>Date dépot</th>
+                        <th>Nom du caissier</th>      
+                      </tr>
+                    </thead>
+                    <tbody #order *ngFor="let dpt of compte.depots | orderBy:order | slice:0:2 ">
+                        <tr>
+                          <td>{{dpt.montantDepot}}</td>
+                          <td>{{dpt.dateDepot | date:'short'}}</td>
+                          <td>{{dpt.caissier.prenom}}&nbsp;&nbsp;{{dpt.caissier.nom}}</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                </div>
+                
+              </div>
+            </div> 
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

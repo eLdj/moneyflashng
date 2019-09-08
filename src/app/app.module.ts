@@ -19,6 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DepotComponent } from './depot/depot.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderModule } from 'ngx-order-pipe';
+import { UtilisateurListComponent } from './utilisateur-list/utilisateur-list.component';
+import { PartDetailComponent } from './part-detail/part-detail.component';
+import { TransactionService } from './services/transaction.service';
+import { UtilisateurService } from './services/utilisateur.service';
+import { CompteService } from './services/compte.service';
+import { DepotService } from './services/depot.service';
+import { AuthGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +40,8 @@ import { OrderModule } from 'ngx-order-pipe';
     PartenaireAddComponent,
     TransactionComponent,
     DepotComponent,
+    UtilisateurListComponent,
+    PartDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,13 +52,27 @@ import { OrderModule } from 'ngx-order-pipe';
     BrowserAnimationsModule,
     OrderModule
   ],
-  providers: [AuthService,PartenaireService,PartenaireService,
+  providers: [
+    AuthService,
+    AuthGuard,
+    PartenaireService,
+    CompteService,
+    DepotService,
+    TransactionService,
+    UtilisateurService
   /*{
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterfaceService,
       multi: true
   }*/],
   bootstrap: [AppComponent],
-  exports: [UtilisateurComponent,DepotComponent]
+  exports: [
+    UtilisateurComponent,
+    DepotComponent,
+    PartenaireAddComponent,
+    PartenaireListComponent,
+    TransactionComponent,
+    UtilisateurListComponent
+  ]
 })
 export class AppModule { }

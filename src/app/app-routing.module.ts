@@ -9,6 +9,8 @@ import { PartenaireAddComponent } from './partenaire-add/partenaire-add.componen
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
+import { UtilisateurListComponent } from './utilisateur-list/utilisateur-list.component';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -17,11 +19,28 @@ const routes: Routes = [
   },
   {
     path: 'utilisateur',
-    component: UtilisateurComponent
+    component: UtilisateurComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'utilisateur/:id',
+    component: UtilisateurComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'utilisateur-list',
+    component: UtilisateurListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'partenaire-add',
-    component: PartenaireAddComponent
+    component: PartenaireAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'partenaire-add/:id',
+    component: PartenaireAddComponent,
+    canActivate: [AuthGuard]
   },
   {
   
@@ -34,7 +53,8 @@ const routes: Routes = [
   },
   {
     path: 'partenaire-list',
-    component:  PartenaireListComponent
+    component:  PartenaireListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -46,11 +66,13 @@ const routes: Routes = [
   },
   {
     path: 'transaction',
-    component: TransactionComponent
+    component: TransactionComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'depot',
-    component: DepotComponent
+    component: DepotComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

@@ -9,7 +9,6 @@ export class AuthService {
   host2:string = "http://localhost:8000/api/login_check";
   jwt:string;
   username:string;
-  prenom:string;
   roles:Array<string>;
 
 
@@ -38,6 +37,11 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('token')
+  }
+
+  loggedIn()
+  {
+    return !!localStorage.getItem('token')
   }
 
 

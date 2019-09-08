@@ -15,6 +15,7 @@ export class DepotComponent implements OnInit {
 
   public compte = new Compte();
   public depot = new Depot();
+ 
 
   constructor(private dpt: DepotService, private fb: FormBuilder,private orderPipe: OrderPipe) { }
 
@@ -40,7 +41,7 @@ export class DepotComponent implements OnInit {
     this.dpt.findNum(this.findNumForm.value)
     .subscribe(
       data => {this.compte = data
-      console.log(this.compte)
+     console.log(this.compte)
       },
       err => console.log(err)
     )

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Partenaire } from '../entity/partenaire';
 import { PartenaireService } from '../services/partenaire.service';
 import { HttpClient } from '@angular/common/http';
+import { UtilisateurService } from '../services/utilisateur.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./utilisateur.component.css']
 })
 export class UtilisateurComponent implements OnInit {
-
+  id = this.actRoute.snapshot.params['id'];
   partModel = new Partenaire();
   erroMsg = '';
   imageUrl:string="/assets/img/test.png";
@@ -18,9 +20,18 @@ export class UtilisateurComponent implements OnInit {
   rolesPart = ['ROLE_ADMIN_PARTENAIRE','ROLE_USER_PARTENAIRE'];
   profils = ["ADMIN_SYSTEM","CAISSIER","ADMIN_PARTENAIRE","USER_PARTENAIRE"];
 
-  constructor(private _partService: PartenaireService,http: HttpClient) { }
+  constructor(private _partService: PartenaireService,http: HttpClient,private user: UtilisateurService, public actRoute: ActivatedRoute,
+    public router: Router) { }
 
   ngOnInit() {
+
+    this.user.onUser(this.id)
+    .subscribe(
+      data =>{
+        this.partModel=data
+      },
+      err => console.log(err)
+    )
   }
 
   handleFileInput(file : FileList){

@@ -148,7 +148,7 @@ export class TransactionComponent implements OnInit {
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Continuez vers le retrait'
+          confirmButtonText: 'Imprimez recu'
         })
       },
       err =>{
@@ -166,8 +166,6 @@ export class TransactionComponent implements OnInit {
                 'Pas autorisé !',
                 'error'
               )}
-          
-          
           else{
             Swal.fire(
               'Attention',
@@ -175,7 +173,7 @@ export class TransactionComponent implements OnInit {
               'warning'
             )
           }
-    }
+        }
     )
     this.affiche = false;
   }

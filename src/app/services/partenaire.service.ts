@@ -2,17 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Partenaire } from '../entity/partenaire';
 import { AuthService } from './auth.service';
-import {  Observable } from 'rxjs/';
-import { catchError } from 'rxjs/operators';
+import {  Observable,Subject } from 'rxjs/';
+import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+
 @Injectable()
 export class PartenaireService {
  
   private _urlpartlist: string = "http://localhost:8000/api/listparts";
   private _urlpartadd: string = "http://localhost:8000/api/inscrit";
   private _urluseradd: string = "http://localhost:8000/api/adduser";
+  private _urlpartblosck: string = "http://localhost:8000/api/partblock/";
+  private _urlpartupdate: string = "http://localhost:8000/api/partupdate/";
+  private _urlgetpart: string = "http://localhost:8000/api/listpart/";
   
   constructor(private httpClient: HttpClient) { }
+
+  private _refresh$ = new Subject<void>();
+
+  get refresh$()
+  {
+    return this._refresh$;
+  }
   
   private headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
 
@@ -21,6 +32,10 @@ export class PartenaireService {
       return this.httpClient.get<Partenaire[]>(this._urlpartlist,{headers:this.headers});
       
     } 
+
+    getPart(id):Observable<Partenaire>{
+      return this.httpClient.get<Partenaire>(this._urlgetpart+id,{headers:this.headers});
+    }
    
     errorHandler(error: HttpErrorResponse){
       return Observable.throw(error.message || "Server Error");
@@ -68,6 +83,21 @@ export class PartenaireService {
 
       return this.httpClient.post<Partenaire>(this._urluseradd,formData,{headers:this.headers})
       .pipe(catchError(this.errorHandlerpost))
+    }
+
+    blockPart(id): Observable<any>
+    {
+      return this.httpClient.get<any>(this._urlpartblosck+id,{headers:this.headers})
+          .pipe(
+            tap(()=>{
+              this._refresh$.next();
+            })
+          );
+    }
+
+    updatePart(id):Observable<any>
+    {
+      return this.httpClient.put<any>(this._urlpartupdate+id,{headers:this.headers})
     }
 
     // imageUpload(image){
