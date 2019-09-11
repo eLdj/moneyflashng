@@ -41,7 +41,6 @@ export class DepotComponent implements OnInit {
     this.dpt.findNum(this.findNumForm.value)
     .subscribe(
       data => {this.compte = data
-     console.log(this.compte)
       },
       err => console.log(err)
     )

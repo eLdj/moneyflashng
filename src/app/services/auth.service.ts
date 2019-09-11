@@ -31,8 +31,6 @@ export class AuthService {
     let objJWT = jwtHelper.decodeToken(this.jwt);   
     this.username = objJWT.username;
     this.roles = objJWT.roles;
-    console.log(this.username);
-    console.log(this.roles);
   }
 
   getToken() {
@@ -44,15 +42,39 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
+  isSupAdminPart(){
+
+    return this.roles.indexOf('ROLE_SUPER_ADMIN_PARTENAIRE')>=0 ;
+  }
 
   isAdmin(){
-    return this.roles.indexOf('ROLE_SUPER_ADMIN')>=0;
+  
+    return this.roles.indexOf("ROLE_SUPER_ADMIN")>=0;
+   
   }
 
   isAdminPart(){
-    return this.roles.indexOf('ROLE_SUPER_ADMIN_PARTENAIRE')>=0;
+    
+   return this.roles.indexOf("ROLE_ADMIN_PARTENAIRE")>=0;
   }
-  
+
+  isCaissier(){
+    return this.roles.indexOf("ROLE_CAISSIER")>=0;
+  }
+
+  isUserPart(){
+    return this.roles.indexOf("ROLE_USER_PARTENAIRE")>=0;
+  }
+
+  isAdminSyst(){
+    return this.roles.indexOf("ROLE_ADMIN_SYSTEM")>=0;
+  }
+
+  isAuthenticated(){
+
+    return ( this.isAdmin() || this.isUserPart() || this.isSupAdminPart() || this.isCaissier() );
+  }
+
   logout() {
     localStorage.removeItem('token');
     this._router.navigate(['/login']);

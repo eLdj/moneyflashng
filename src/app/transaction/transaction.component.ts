@@ -23,14 +23,21 @@ export class TransactionComponent implements OnInit {
  
   transactionForm = this.fb.group({
     
-    montant_transfert:[''],
-      nom_complet_e:[''] ,
-      tel_e:[''] ,
-      adresse_e: [''] ,
-      cin_e:[''],
-      nom_complet_b:[''],
-      tel_b:[''],
-      adresse_b:['']
+    montant_transfert:['',[Validators.required]],
+     
+    nom_complet_e:['',[Validators.required]] ,
+     
+    tel_e:['',[Validators.required]] ,
+     
+    adresse_e: ['',[Validators.required]] ,
+      
+    cin_e:['',[Validators.required]],
+    
+    nom_complet_b:['',[Validators.required]],
+    
+    tel_b:['',[Validators.required]],
+    
+    adresse_b:['']
 
   })
 

@@ -11,15 +11,22 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { DepotComponent } from './depot/depot.component';
 import { UtilisateurListComponent } from './utilisateur-list/utilisateur-list.component';
 import { AuthGuard } from './auth.guard';
+import { CompteComponent } from './compte/compte.component';
+
 const routes: Routes = [
   {
-    path: '',
+    path: '',  
     redirectTo: '/login',
     pathMatch: 'full',
   },
   {
     path: 'utilisateur',
     component: UtilisateurComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'compte',
+    component: CompteComponent,
     canActivate: [AuthGuard]
   },
   {

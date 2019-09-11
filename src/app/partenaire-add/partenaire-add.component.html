@@ -11,7 +11,7 @@
                 
               <div class="form-group">
                 <input type="text"  #raisonsociale="ngModel" [class.is-invalid]="raisonsociale.invalid && raisonsociale.touched" class="form-control form-control-user" id="raisonsociale" placeholder="Raison Sociale" name="raisonSociale" [(ngModel)]="partModel.raisonSociale">
-               <!--<small class="text-danger" [class.d-none]="raisonsociale.valid || raisonsociale.untouched">Ce champ est requis</small>--> 
+                <small class="text-danger" [class.d-none]="raisonsociale.valid || raisonsociale.untouched">Ce champ est requis</small>
               </div>
               
               <div class="form-group">

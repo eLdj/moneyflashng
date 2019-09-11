@@ -9,7 +9,8 @@ export class ModalComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    
   }
 
   logout()

@@ -15,6 +15,10 @@ constructor(private auth: AuthService){}
   }
 
   isAdminPart(){
-    return this.auth.isAdminPart();
+    return this.auth.isSupAdminPart();
+  }
+
+  loggedIn(){
+    return this.auth.loggedIn();
   }
 }

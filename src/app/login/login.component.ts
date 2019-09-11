@@ -23,8 +23,21 @@ export class LoginComponent implements OnInit {
       .subscribe(resp=>{
         let jwt = resp.body['token'];
         this.auth.saveToken(jwt); 
-        if(this.isAdmin() || this.isAdminPart()){
+        if(this.auth.isAdmin()){
+          
           this._router.navigate(['/partenaire-list'])
+
+        }else if(this.auth.isSupAdminPart() || this.auth.isAdminPart()){
+
+          this._router.navigate(['/utilisateur-list'])
+        }
+        else if(this.auth.isCaissier()){
+
+          this._router.navigate(['/depot'])
+
+        }else if(this.auth.isUserPart()){
+
+          this._router.navigate(['/transaction'])
         }
        // console.log();
       },err=>{
@@ -44,13 +57,4 @@ export class LoginComponent implements OnInit {
         }
       })
   }
-  
-  isAdmin(){
-    return this.auth.isAdmin();
-  }
-
-  isAdminPart(){
-    return this.auth.isAdminPart();
-  }
-
 }

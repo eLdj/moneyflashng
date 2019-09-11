@@ -26,6 +26,7 @@ import { UtilisateurService } from './services/utilisateur.service';
 import { CompteService } from './services/compte.service';
 import { DepotService } from './services/depot.service';
 import { AuthGuard } from './auth.guard';
+import { CompteComponent } from './compte/compte.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AuthGuard } from './auth.guard';
     DepotComponent,
     UtilisateurListComponent,
     PartDetailComponent,
+    CompteComponent,
   ],
   imports: [
     BrowserModule,

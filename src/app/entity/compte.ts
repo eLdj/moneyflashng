@@ -7,21 +7,26 @@ export class Compte {
         public numero: number =null,
        
         public depots = null,
-        public utilisateurs = null,
+       // public utilisateurs = null,
         public transactions = null,
         public nienea = null,
-        public raisonSociale = null
+        public raisonSociale = null,
+        
 
 
     ){}
 
      partenaire : {
-        
        ninea: string,
         raisonSociale: string ,
         telephoneP: string,
         emailP: string,
         statut: string
+    }
+
+    utilisateurs : {
+        username: string,
+        
     }
   
 }

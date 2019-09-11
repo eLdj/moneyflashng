@@ -24,14 +24,16 @@ export class UtilisateurComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
-
-    this.user.onUser(this.id)
-    .subscribe(
-      data =>{
-        this.partModel=data
-      },
-      err => console.log(err)
-    )
+    if(this.id){
+      this.user.onUser(this.id)
+      .subscribe(
+        data =>{
+          this.partModel=data
+        },
+        err => console.log(err)
+      )
+    }
+  
   }
 
   handleFileInput(file : FileList){

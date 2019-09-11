@@ -3,19 +3,17 @@
     <div id="wrapper">
 
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">          
-                <app-navside> </app-navside>
+                <app-navside  *ngIf="loggedIn()"> </app-navside>
             </ul>
         
         <div id="content-wrapper" class="d-flex flex-column">
                
             <div id="content">
             
-                <app-navetop></app-navetop>
+                <app-navetop *ngIf="loggedIn()"></app-navetop>
                 
                 <div class="container-fluid">
-                    
                     <router-outlet></router-outlet>
-                
                 </div>
             
             </div>

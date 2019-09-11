@@ -19,8 +19,11 @@ export class PartenaireAddComponent implements OnInit {
     public router: Router){ }
 
   ngOnInit() {
-    this._partService.getPart(this.id)
-    .subscribe(data => this.partModel = data);  
+    if(this.id){
+      this._partService.getPart(this.id)
+      .subscribe(data => this.partModel = data);
+    }
+    
   }
 
   handleFileInput(file : FileList){

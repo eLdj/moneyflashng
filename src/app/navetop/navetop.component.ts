@@ -15,6 +15,31 @@ export class NavetopComponent implements OnInit {
 
 
   loggedIn(){
-    this.auth.loggedIn();
+    return this.auth.loggedIn();
   }
+  
+  isAdmin(){
+    return this.auth.isAdmin();
+   }
+ 
+   isSupAdminPart(){
+     return this.auth.isSupAdminPart();
+   }
+   isAdminPart(){
+    return this.auth.isAdminPart();
+  }
+   isCaissier(){
+     return this.auth.isCaissier();
+   }
+ 
+   isUserPart(){
+     return this.auth.isUserPart();
+   }
+ 
+   isAdminSyst(){
+     return this.auth.isAdminSyst();
+   }
+   user(){
+    return this.auth.username;
+   }
 }
