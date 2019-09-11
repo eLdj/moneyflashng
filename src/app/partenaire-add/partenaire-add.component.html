@@ -10,16 +10,33 @@
               </div>
                 
               <div class="form-group">
-                <input type="text"  #raisonsociale="ngModel" [class.is-invalid]="raisonsociale.invalid && raisonsociale.touched" class="form-control form-control-user" id="raisonsociale" placeholder="Raison Sociale" name="raisonSociale" [(ngModel)]="partModel.raisonSociale">
-                <small class="text-danger" [class.d-none]="raisonsociale.valid || raisonsociale.untouched">Ce champ est requis</small>
+                <input type="text" required #raisonsociale="ngModel" [class.is-invalid]="raisonsociale.invalid && raisonsociale.touched" minlength="2" class="form-control form-control-user" id="raisonsociale" placeholder="Raison Sociale" name="raisonSociale" [(ngModel)]="partModel.raisonSociale">
+               <!--<small class="text-danger" [class.d-none]="raisonsociale.valid || raisonsociale.untouched">Ce champ est requis</small>--> 
+               <div *ngIf="raisonsociale.touched">
+                  <div *ngIf="raisonsociale.errors && raisonsociale.invalid">
+                    <small class="text-danger" *ngIf="raisonsociale.errors.required">La raison social est requise</small>
+                    <small class="text-danger" *ngIf="raisonsociale.errors.minlength">La raison social doit comporter au moins 2 caractères</small>
+                  </div>
+                </div>
               </div>
               
               <div class="form-group">
-                <input type="number" #ninea="ngModel" class="form-control form-control-user" id="ninea" placeholder="NINEA" name="ninea" [(ngModel)]="partModel.ninea">
+                <input type="text" required  #ninea="ngModel" class="form-control form-control-user" pattern="^\d{7}$" [class.is-invalid]="ninea.invalid && ninea.touched" placeholder="NINEA" [(ngModel)]="partModel.ninea" name="ninea">
+                <div *ngIf="ninea.touched">
+                  <div *ngIf="ninea.errors && ninea.invalid">
+                    <small class="text-danger" *ngIf="ninea.errors.required">Le ninea est requis</small>
+                    <small class="text-danger" *ngIf="ninea.errors.pattern">Le NINEA doit comporté 7 caractères numériques </small>
+                  </div>
+                </div>
               </div>
               
               <div class="form-group">
-                <input type="text" class="form-control form-control-user" id="siege" placeholder="Siège" name="siege" [(ngModel)]="partModel.siege">
+                <input #siege="ngModel" type="text" required class="form-control form-control-user" [class.is-invalid]="siege.invalid && siege.touched"  placeholder="Siège" name="siege" [(ngModel)]="partModel.siege">
+                <div *ngIf="siege.touched">
+                    <div *ngIf="siege.errors && siege.invalid">
+                      <small class="text-danger" *ngIf="siege.errors.required">Le siège est requis</small>
+                    </div>
+                  </div>
               </div>
               
               <div class="form-group">
@@ -33,7 +50,14 @@
               </div>
               
               <div class="form-group">
-                <input type="email" #emailP="ngModel" class="form-control form-control-user" id="emailP" placeholder="Addresse Email" name="emailP" [(ngModel)]="partModel.emailP">
+                <input type="email" email required #emailP="ngModel" class="form-control form-control-user" [class.is-invalid]="emailP.invalid && emailP.touched" id="emailP" placeholder="Addresse Email" name="emailP" [(ngModel)]="partModel.emailP">
+                <div *ngIf="emailP.touched">
+                    <div *ngIf="emailP.errors && emailP.invalid">
+                      <small class="text-danger" *ngIf="emailP.errors.required">L' email est requis</small>
+                      <small class="text-danger" *ngIf="emailP.errors.email">Cet email n'est pas valide</small>
+                    </div>
+                  </div>
+              
               </div>
             </div>
           </div>  
@@ -47,34 +71,79 @@
               
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" name="nom" [(ngModel)]="partModel.nom">
+                  <input type="text" required pattern="^[a-zA-Z]*$" #nom="ngModel" class="form-control form-control-user" minlength="2" [class.is-invalid]="nom.invalid && nom.touched" id="nom" placeholder="Nom" name="nom" [(ngModel)]="partModel.nom">
+                  <div *ngIf="nom.touched">
+                    <div *ngIf="nom.errors && nom.invalid">
+                      <small class="text-danger" *ngIf="nom.errors.required">Le nom est requis</small>
+                      <small class="text-danger" *ngIf="nom.errors.pattern">Le nom ne doit pas contenir de chiffre</small>
+                      <small class="text-danger" *ngIf="nom.errors.minlength">Doit comporter au moins 2  caracrtères</small>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" id="prenom" placeholder="Prènom" name="prenom" [(ngModel)]="partModel.prenom">
+                  <input type="text" required pattern="^[a-zA-Z]*$" class="form-control form-control-user" #prenom="ngModel" minlength="2" [class.is-invalid]="prenom.invalid && prenom.touched" id="prenom" placeholder="Prènom" name="prenom" [(ngModel)]="partModel.prenom">
+                  <div *ngIf="prenom.touched">
+                      <div *ngIf="prenom.errors && prenom.invalid">
+                        <small class="text-danger" *ngIf="prenom.errors.required">Le prenom est requis</small>
+                        <small class="text-danger" *ngIf="prenom.errors.pattern">Le prenom ne doit pas contenir de chiffre</small>
+                        <small class="text-danger" *ngIf="prenom.errors.minlength">Doit comporter au moins 2  caracrtères</small>
+                      </div>
+                  </div>
                 </div>
               </div>
               
               <div class="form-group">
-                <input type="email" class="form-control form-control-user" id="email" placeholder="Adresse Email" name="email" [(ngModel)]="partModel.email">
+                <input type="email"required email #email="ngModel" class="form-control form-control-user" [class.is-invalid]="email.invalid && email.touched" id="email" placeholder="Adresse Email" name="email" [(ngModel)]="partModel.email">
+                <div *ngIf="email.touched">
+                    <div *ngIf="email.errors && emailP.invalid">
+                      <small class="text-danger" *ngIf="email.errors.required">L' email est requis</small>
+                      <small class="text-danger" *ngIf="email.errors.email">Cet email n'est pas valide</small>
+                    </div>
+                  </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="tel" class="form-control form-control-user" id="tel" placeholder="Téléphone" name="tel" [(ngModel)]="partModel.telephone">
+                  <input type="tel" required #telephone = "ngModel" pattern="^\d{9}$" class="form-control form-control-user" [class.is-invalid]="telephone.invalid && telephone.touched" id="tel" placeholder="Téléphone" name="telephone" [(ngModel)]="partModel.telephone">
+                  <div *ngIf="telephone.touched">
+                    <div *ngIf="telephone.errors && telephone.invalid">
+                      <small class="text-danger" *ngIf="telephone.errors.required">Le numero de telephone est requis</small>
+                      <small class="text-danger" *ngIf="telephone.errors.pattern">Le numero doit être de 9 chiffre</small>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse" name="adresse" [(ngModel)]="partModel.adresse">
+                  <input type="text" required #adresse="ngModel" class="form-control form-control-user" id="adresse" [class.is-invalid]="adresse.invalid && adresse.touched" placeholder="Adresse" name="adresse" [(ngModel)]="partModel.adresse">
+                  <div *ngIf="adresse.touched">
+                      <div *ngIf="adresse.errors && adresse.invalid">
+                        <small class="text-danger" *ngIf="adresse.errors.required">Le adresse est requis</small>
+                      </div>
+                    </div>
                 </div>
               </div>
   
   
               <div class="form-group">
-                  <input type="text" #username="ngModel" class="form-control form-control-user" id="username" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="partModel.username">
+                  <input type="text" required #username="ngModel" class="form-control form-control-user" id="username" minlength="2"  [class.is-invalid]="username.invalid && username.touched" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="partModel.username">
+              
+                  <div *ngIf="username.touched">
+                      <div *ngIf="username.errors && username.invalid">
+                        <small class="text-danger" *ngIf="username.errors.required">Le username est requis</small>
+                        <small class="text-danger" *ngIf="username.errors.minlength">Le username doit comporter au moins 2 caractères</small>
+                      </div>
+                    </div>
               </div>
   
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="password" class="form-control form-control-user" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="partModel.password">
+                  <input type="password" required  #password="ngModel"  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{7,}$" [class.is-invalid]="password.invalid && password.touched"  class="form-control form-control-user" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="partModel.password">
+                  <div *ngIf="password.touched">
+                      <div *ngIf="password.errors && password.invalid">
+                        <small class="text-danger" *ngIf="password.errors.required">Le password est requis</small>
+                        <small class="text-danger" *ngIf="password.errors.pattern">Le password doit comporter au moins 7 caractères un majuscule et un caractère spécial</small>
+                      </div>
+                    </div>
+                
                 </div>
                 <div class="col-sm-6">
                   <input type="password" class="form-control form-control-user" id="repeatpwd" placeholder="Confirmez mot de passe" name="repeatpwd" ngModel>

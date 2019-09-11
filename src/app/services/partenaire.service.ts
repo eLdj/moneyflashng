@@ -5,8 +5,7 @@ import { AuthService } from './auth.service';
 import {  Observable,Subject } from 'rxjs/';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PartenaireService {
  
   private _urlpartlist: string = "http://localhost:8000/api/listparts";

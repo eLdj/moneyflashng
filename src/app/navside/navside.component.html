@@ -13,7 +13,8 @@
   
     <!-- Nav Item - Dashboard -->
 
-    <li class="nav-item">
+   <!--
+  <li class="nav-item">
         <a class="nav-link" *ngIf="isAdmin() || isAdminSyst()" [routerLink]='["/partenaire-list"]'>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Acceuil</span></a>
@@ -24,6 +25,8 @@
               <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Acceuil</span></a>
       </li>
+  
+  --> 
   
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -42,8 +45,8 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Type d'ajout</h6>
-          <a class="collapse-item" *ngIf="isAdmin() || isAdminSyst()" [routerLink]='["/partenaire-add"]'>Ajout Partenaire</a>
-          <a class="collapse-item" *ngIf="isAdmin() || isAdminSyst() || isSupAdminPart()" [routerLink]='["/utilisateur"]'>Ajout utilisateur</a>
+          <a class="collapse-item"  [routerLink]='["/partenaire-add"]'>Ajout Partenaire</a>
+          <a class="collapse-item"  [routerLink]='["/utilisateur"]'>Ajout utilisateur</a>
         </div>
       </div>
     </li>
@@ -57,8 +60,8 @@
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Listes</h6>
-          <a class="collapse-item" *ngIf="isAdmin() || isAdminSyst()" [routerLink]='["/partenaire-list"]'>Mes partenaires</a>
-          <a class="collapse-item" *ngIf="isAdmin() || isAdminSyst() || isSupAdminPart() || isAdminPart()" [routerLink]='["/utilisateur-list"]'>Mes utilisateurs</a>
+          <a class="collapse-item"  [routerLink]='["/partenaire-list"]'>Mes partenaires</a>
+          <a class="collapse-item"  [routerLink]='["/utilisateur-list"]'>Mes utilisateurs</a>
         </div>
       </div>
     </li>
@@ -73,8 +76,8 @@
       <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Compte</h6>
-          <a class="collapse-item" *ngIf="isAdmin() || isAdminSyst()" [routerLink]='["/"]'>Comptes partenaires</a>
-          <a class="collapse-item" *ngIf="isSupAdminPart()" [routerLink]='["/compte"]'>Mes comptes</a>
+          <a class="collapse-item" [routerLink]='["/"]'>Comptes partenaires</a>
+          <a class="collapse-item" [routerLink]='["/compte"]'>Mes comptes</a>
           <a class="collapse-item" [routerLink]='["/"]'>Liste des transactions</a>
         </div>
       </div>
@@ -88,8 +91,8 @@
       <div id="collapseTrans" class="collapse" aria-labelledby="headingTrans" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Opérations</h6>
-          <a class="collapse-item" *ngIf="isCaissier()" [routerLink]='["/depot"]'>Dépot sur compte partenaire</a>
-          <a class="collapse-item" *ngIf="isUserPart() || isAdminPart()" [routerLink]='["/transaction"]'>Envoie/retrait</a>
+          <a class="collapse-item"  [routerLink]='["/depot"]'>Dépot sur compte partenaire</a>
+          <a class="collapse-item"  [routerLink]='["/transaction"]'>Envoie/retrait</a>
         </div>
       </div>
     </li>

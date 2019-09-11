@@ -7,10 +7,11 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navetop.component.css']
 })
 export class NavetopComponent implements OnInit {
-
+ username = this.auth.username;
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
+   
   }
 
 
@@ -39,7 +40,7 @@ export class NavetopComponent implements OnInit {
    isAdminSyst(){
      return this.auth.isAdminSyst();
    }
-   user(){
-    return this.auth.username;
-   }
+  //  user(){
+  //   return this.auth.username;
+  //  }
 }

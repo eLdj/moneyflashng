@@ -27,6 +27,7 @@ import { CompteService } from './services/compte.service';
 import { DepotService } from './services/depot.service';
 import { AuthGuard } from './auth.guard';
 import { CompteComponent } from './compte/compte.component';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { CompteComponent } from './compte/compte.component';
     DepotComponent,
     UtilisateurListComponent,
     PartDetailComponent,
-    CompteComponent,
+    CompteComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { CompteComponent } from './compte/compte.component';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    OrderModule
+    OrderModule,
+    MaterialModule
   ],
   providers: [
     AuthService,
